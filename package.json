@@ -1,0 +1,16 @@
+{
+  "name": "canvasDrawingInRealTime",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "sass --watch style.scss:style.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "sass": "^1.26.9"
+  }
+}
