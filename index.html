@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha1/css/bootstrap.min.css'/>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
     <script src="./main.js" async></script>
-    <link rel="stylesheet" href="./style.css">
+    
     <title>Canvas drawing in real time</title>
 </head>
 <body>
@@ -14,21 +15,23 @@
         <h1>Drawing canvas in real time</h1>
         <div class="container">
             <div class="col">
-              <div class="col-sm-12 border border-secondary m-2 bg-primary">
-                One of three columns
+              <div class="col-sm-12 border border-secondary m-2 bg-primary text-white">
+                Pen Blue
               </div>
-              <div class="col-sm-12 border border-secondary m-2 bg-secondary">
-                One of three columns
+              <div class="col-sm-12 border border-secondary m-2 bg-secondary text-white">
+                pen Grey
               </div>
-              <div class="col-sm-12 border border-secondary m-2 bg-danger">
-                One of three columns
+              <div class="col-sm-12 border border-secondary m-2 bg-danger text-white">
+                Pen Red
               </div>
               <div class="col-sm-12 border border-secondary m-2">
-                One of three columns
+                Clear
               </div>
             </div>
           </div>
-          <canvas id="canvasDisplay" class="border border-danger w-100"></canvas>
+          <canvas id="canvasDisplay" class="border border-dark w-50">
+              <p>Désolé votre navigateur ne supporte pas canvas</p>
+          </canvas>
     </div>
 </body>
 </html>
