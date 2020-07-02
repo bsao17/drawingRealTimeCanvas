@@ -1,11 +1,10 @@
 {
-  "name": "canvasDrawingInRealTime",
+  "name": "canvasdrawinginrealtime",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "sass --watch style.scss:style.css",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "sass --watch style.scss:style.css"
   },
   "keywords": [],
   "author": "",
