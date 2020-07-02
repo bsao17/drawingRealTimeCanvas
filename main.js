@@ -1,57 +1,6 @@
-let context = document.getElementById('canvasDisplay').getContext("2d");
-
-    $('#canvasDisplay').mousedown(function(e){
-        var mouseX = e.pageX - this.offsetLeft;
-        var mouseY = e.pageY - this.offsetTop;
-            
-        paint = true;
-        addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
-        redraw();
-    });
-
-    $('#canvasDisplay').mousemove(function(e){
-        if(paint){
-        addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
-        redraw();
-        }
-    });
-
-    $('#canvasDisplay').mouseup(function(e){
-        paint = false;
-    });
-
-    $('#canvasDisplay').mouseleave(function(e){
-        paint = false;
-    });
-
-    var clickX = new Array();
-    var clickY = new Array();
-    var clickDrag = new Array();
-    var paint;
-
-    function addClick(x, y, dragging)
-    {
-    clickX.push(x);
-    clickY.push(y);
-    clickDrag.push(dragging);
+class Sign{
+    constructor(displayId){
+        this.displayId = document.getElementById(displayId);
+        this.context = this.displayId.getContext('2d');
     }
-
-    function redraw(){
-        context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
-        
-        context.strokeStyle = "#df4b26";
-        context.lineJoin = "round";
-        context.lineWidth = 2;
-                
-        for(var i=0; i < clickX.length; i++) {		
-        context.beginPath();
-        if(clickDrag[i] && i){
-            context.moveTo(clickX[i-1], clickY[i-1]);
-        }else{
-            context.moveTo(clickX[i]-1, clickY[i]);
-        }
-        context.lineTo(clickX[i], clickY[i]);
-        context.closePath();
-        context.stroke();
-        }
-    }
+}
