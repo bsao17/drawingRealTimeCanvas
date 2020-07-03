@@ -22,9 +22,24 @@ class Sign{
         this.context.strokeRect( 50, 10, 100, 40);
         this.context.lineWidth = "2";
     }
+
+    drawArc(){
+        this.context.beginPath();
+        this.context.arc(100, 30, 20, 0, Math.PI*360/180 )
+        this.context.fillStyle = 'grey';
+        this.context.fill()
+    }
+
+    writeText(){
+        this.context.font ='bold 20pt Arial';
+        this.context.fillStyle = 'gold';
+        this.context.fillText('Hello univers', 80, 100);
+    }
 }
  
 
 let firstDraw = new Sign ('canvasDisplay');
 firstDraw.drawForm();
-firstDraw.drawRect()
+firstDraw.drawRect();
+firstDraw.drawArc();
+firstDraw.writeText();
