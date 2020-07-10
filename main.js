@@ -1,45 +1,75 @@
-class Sign{
-    constructor(displayId){
+class Signature{
+
+    constructor(displayId, buttonClear){
         this.displayId = document.getElementById(displayId);
-        this.context = this.displayId.getContext('2d');
+        this.ctx = this.displayId.getContext('2d');
+        this.buttonClear = document.getElementById(buttonClear)
+        this.x = 0;
+        this.y = 0;
+        this.painting = false;
+        this.canvasEmpty = true;
     }
 
-    drawForm(){
-        this.context.beginPath();
-        this.context.moveTo(10, 10);
-        this.context.lineTo(15, 10);
-        this.context.lineTo(35, 10);
-        this.context.lineTo(40, 10);
-        this.context.lineTo(40, 40);
-        this.context.closePath()
-        this.context.lineWidth = "4";
-        this.context.strokeStyle = '#DC3545';
-        this.context.stroke();
+    makeSignature(){
+        
+
+        this.displayId.addEventListener('mousedown', (e)=>{
+            this.painting = true;
+            this.drawLine(e);
+            this.canvasEmpty = false;
+            this.canvasEmptydisplay()   
+            console.log(this.canvasEmptydisplay)
+        });
+
+/**------------------------------------------------------------ */
+        this.displayId.addEventListener('mousemove', (e)=>{
+            if(this.painting === true){
+                this.drawLine(e);
+                this.canvasEmpty = false;
+            }   
+        });
+
+/**------------------------------------------------------------ */
+
+        window.addEventListener('mouseup', (e)=>{
+           this.painting = false;
+           this.ctx.beginPath()
+        }); 
     }
 
-    drawRect(){
-        this.context.strokeStyle = '#0D6EFD';
-        this.context.strokeRect( 50, 10, 100, 40);
-        this.context.lineWidth = "2";
+/**----------------------------------------------------------------- */
+    clear(x, y){
+        this.buttonClear.addEventListener('click', ()=>{
+            this.ctx.clearRect(x, y,this.displayId.width,this.displayId.height);
+            this.canvasEmpty = true; 
+            this.canvasEmptydisplay()
+        } )
+    }
+   
+/**------------------------------------------------------------------ */
+    drawLine(e) {
+        this.ctx.strokeStyle='#5078A7';
+        this.ctx.lineJoin = 'round';
+        this.ctx.lineWidth = 5 ;
+        this.ctx.lineTo(e.offsetX, e.offsetY);
+        this.ctx.stroke();
+        this.ctx.beginPath();
+        this.ctx.moveTo(e.offsetX, e.offsetY); 
     }
 
-    drawArc(){
-        this.context.beginPath();
-        this.context.arc(100, 30, 20, 0, Math.PI*360/180 )
-        this.context.fillStyle = 'grey';
-        this.context.fill()
+    canvasEmptydisplay(){
+        if(this.canvasEmpty){
+            document.querySelector('#buttonConfirmResa').style.opacity = "0";
+            
+        }
+        else if(this.canvasEmpty == false){
+            document.querySelector('#buttonConfirmResa').style.opacity = "1";
+        }
     }
 
-    writeText(){
-        this.context.font ='bold 20pt Arial';
-        this.context.fillStyle = 'gold';
-        this.context.fillText('Hello univers', 80, 100);
-    }
-}
- 
+};
 
-let firstDraw = new Sign ('canvasDisplay');
-firstDraw.drawForm();
-firstDraw.drawRect();
-firstDraw.drawArc();
-firstDraw.writeText();
+
+let signature = new Signature("canvasDisplay", "clearCanvas");
+signature.makeSignature();
+signature.clear(0, 0);

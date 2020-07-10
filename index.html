@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha1/css/bootstrap.min.css'/>
+    <link rel="stylesheet" href="./style.css">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
     <script src="./main.js" async></script>
     
@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="w-100 text-center">
-        <h1>Drawing canvas in real time</h1>
+        <h1 id="title" class="text-white">Drawing canvas in real time</h1>
         <div class="container">
             <div class="col">
               <div class="col-sm-12 border border-secondary m-2 bg-primary text-white">
@@ -24,14 +24,40 @@
               <div class="col-sm-12 border border-secondary m-2 bg-danger text-white">
                 Pen Red
               </div>
-              <div class="col-sm-12 border border-secondary m-2">
+              <div class="col-sm-12 border border-secondary m-2 bg-white">
                 Clear
               </div>
             </div>
           </div>
-          <canvas id="canvasDisplay" class="border border-dark w-50">
-              <p>Désolé votre navigateur ne supporte pas canvas</p>
-          </canvas>
+          <canvas id="canvasDisplay" class="border border-dark bg-white" width="600" height="400">
+              <p>Désolé,mais votre navigateur ne supporte pas canvas</p>
+          </canvas><br>
+          <button id="clearCanvas" type="button">Clear Canvas</button>
     </div>
+
+    <section class="border border-dark w-75 m-auto bg-white">
+        <div class="row d-flex justify-content-center flex-wrap-wrap mt-5">
+            <p class="col-md-5 bg-primary text-white">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+              Quo at voluptate nostrum nemo voluptatibus optio inventore repellendus et officia. 
+              Ab est, sit laborum doloribus voluptatibus fugiat earum dolorem consequuntur quaerat!
+            </p>
+            <p class="col-md-5 bg-secondary text-white">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, minima optio? 
+              Et commodi aperiam, culpa accusamus laudantium provident asperiores aspernatur consectetur officiis eius hic, 
+              perferendis quo quae similique obcaecati tenetur!
+            </p>
+            <p class="col-md-5 dark-text bg-white">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+              Sed eaque aut culpa consequuntur totam tempore in error ea eum numquam ex, 
+              expedita officiis nemo debitis necessitatibus quae dolores consequatur suscipit.
+            </p>
+            <p class="col-md-5 bg-danger text-white">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+              Sed eaque aut culpa consequuntur totam tempore in error ea eum numquam ex, 
+              expedita officiis nemo debitis necessitatibus quae dolores consequatur suscipit.
+            </p>
+        </div>
+    </section>
 </body>
 </html>
